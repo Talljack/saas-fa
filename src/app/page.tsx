@@ -1,6 +1,6 @@
 import { Suspense } from 'react'
 import Header from "~/app/Header";
-import { UserButton } from "@clerk/nextjs";
+// import { useEffect } from 'react'
 // import Hero from "~/app/_components/Hero";
 // import Problem from "~/app/_components/Problem";
 // import FeaturesAccordion from "~/app/_components/FeaturesAccordion";
@@ -16,7 +16,6 @@ export default function Home() {
       <Suspense>
         <Header />
       </Suspense>
-      <UserButton />
     </>
   )
 }
