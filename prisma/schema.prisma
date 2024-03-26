@@ -6,18 +6,22 @@ generator client {
 }
 
 datasource db {
-    provider = "postgresql"
-    url      = env("DATABASE_URL")
+    provider     = "postgresql"
+    url          = env("DATABASE_URL")
     relationMode = "prisma"
 }
 
 // user profile data table
 model Profile {
-    id String @id @default(uuid())
-    userId String @unique
-    name String
-    imageUrl String @db.Text
-    email String @db.Text
-    createdAt DateTime @default(now())
-    updatedAt DateTime @updatedAt
+    id         String   @id @default(uuid())
+    customerId String   @db.Text
+    priceId    String   @db.Text
+    hasAccess  Boolean  @default(false)
+    email      String   @unique
+    firstName  String?  @db.Text
+    lastName   String?  @db.Text
+    createdAt  DateTime @default(now())
+    updatedAt  DateTime @updatedAt
+
+    @@unique([customerId, email])
 }

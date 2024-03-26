@@ -10,7 +10,7 @@ import {
     UserButton,
     useUser,
 } from '@clerk/nextjs'
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from 'framer-motion';
 import {
@@ -61,7 +61,7 @@ export default function Header() {
 export function UserInfo() {
     const [open, setOpen] = useState(false)
     const pathName = usePathname()
-    const { user } = useUser()
+    const { user, isSignedIn } = useUser()
     const StrategyIcon = useMemo(() => {
         const strategy = user?.primaryEmailAddress?.verification.strategy
         if (!strategy) {
@@ -76,6 +76,24 @@ export function UserInfo() {
                 return MailIcon
         }
     }, [user?.primaryEmailAddress?.verification?.strategy])
+    useEffect(() => {
+        if (isSignedIn && user?.primaryEmailAddress?.emailAddress) {
+            fetch('/api/user', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    firstName: user.firstName ?? '',
+                    lastName: user.lastName ?? '',
+                    email: user?.primaryEmailAddress?.emailAddress,
+                    id: user.id
+                })
+            }).catch(error => {
+                console.log('error', error)
+            })
+        }
+    }, [isSignedIn, user])
     return (
         <AnimatePresence>
             <SignedIn key={'user-info'}>
