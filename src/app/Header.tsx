@@ -25,7 +25,7 @@ import { Tooltip, TooltipProvider, TooltipContent, TooltipTrigger } from '~/comp
 export default function Header() {
     return (
         <>
-            <div className="flex h-16 justify-center items-center pl-24 pr-24 bg-gray-700 dark:bg-light-700">
+            <div className="flex h-16 justify-center items-center pl-80 pr-24 bg-gray-700 dark:bg-light-700">
                 <div className="flex w-full">
                     <div className="icon flex justify-center items-center">
                         <Image
@@ -37,7 +37,7 @@ export default function Header() {
                         />
                         <span className="ml-2 font-bold text-white dark:text-black">SaasFa</span>
                     </div>
-                    <div className="flex flex-1 gap-4 justify-center items-center">
+                    <div className="flex flex-1 gap-4 ml-10 items-center">
                         <Link href={'/pricing'} className="text-white cursor-pointer">Pricing</Link>
                         <Link href={'/reviews'} className="text-white cursor-pointer">Reviews</Link>
                         <Link href={'/contact'} className="text-white cursor-pointer">Help Center</Link>

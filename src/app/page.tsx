@@ -1,7 +1,7 @@
 import { Suspense } from 'react'
 import Header from "~/app/Header";
 // import { useEffect } from 'react'
-// import Hero from "~/app/_components/Hero";
+import { Hero } from "~/components/pages/Hero";
 // import Problem from "~/app/_components/Problem";
 // import FeaturesAccordion from "~/app/_components/FeaturesAccordion";
 // import Pricing from "~/app/_components/Pricing";
@@ -16,6 +16,9 @@ export default function Home() {
       <Suspense>
         <Header />
       </Suspense>
+      <main>
+        <Hero />
+      </main>
     </>
   )
 }
