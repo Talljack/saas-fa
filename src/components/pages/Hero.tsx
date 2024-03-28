@@ -12,7 +12,7 @@ export const Hero = () => {
           </button>
         </div>
         <div className="relative max-md:-m-4 lg:w-full">
-          <Image src={HeroImage} width={570} height={400} alt="hero" className=" max-w-xl rounded-lg shadow-2xl" />
+          <Image src={HeroImage} alt="hero" className=" max-w-xl rounded-lg shadow-2xl" />
         </div>
     </section>
   )
