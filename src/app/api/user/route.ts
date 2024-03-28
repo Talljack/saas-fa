@@ -20,12 +20,12 @@ export async function POST(request: NextRequest) {
     }
   })
   if (user) {
-    return new Response("User already exists", {
-      status: 200,
-      statusText: 'User already exists'
+    return Response.json({
+      success: true,
+      msg: 'User already exists'
     })
   }
-  await db.profile.create({
+  const data = await db.profile.create({
     data: {
       firstName: body.firstName,
       lastName: body.lastName,
@@ -35,8 +35,5 @@ export async function POST(request: NextRequest) {
       email: body.email,
     }
   })
-  return new Response("Save user successfully", {
-    status: 200,
-    statusText: 'Save user successfully',
-  })
+  return Response.json(data)
 }

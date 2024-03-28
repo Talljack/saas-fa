@@ -1,5 +1,8 @@
 {
     "accessibility.signals.sounds.volume": 0,
     "WillLuke.nextjs.addTypesOnSave": true,
-    "WillLuke.nextjs.hasPrompted": true
+    "WillLuke.nextjs.hasPrompted": true,
+    "cSpell.words": [
+        "daisyui"
+    ]
 }
